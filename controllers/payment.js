@@ -1,6 +1,6 @@
 const https = require('https')
 const axios = require('axios')
-const User = require('../models/user')
+const User = require('../models/User')
 
 require('dotenv').config()
 // const paystack_secret_key = process.env.paystack_secret_key

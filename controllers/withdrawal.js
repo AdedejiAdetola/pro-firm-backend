@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-const User = require('../models/user')
+const User = require('../models/User')
 
 exports.postWithdrawalDetails = async (req, res) => {
     const withdrawalData = req.body
