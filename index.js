@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5000;
 const CONNECTION_URL = process.env.CONNECTION_URL;
 
 // Enable CORS for requests from the frontend
-app.use(cors({ origin: 'http://localhost:5000' }));
+app.use(cors({ origin: ['http://localhost:3001', 'https://profirm.onrender.com'] }));
 
 app.use(bodyParser.json());
 
@@ -39,7 +39,5 @@ app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
 // 926 by 113 => passage
 
 
-// --- first 4 products should not have referral condition 
-// for users to purchase them
-
-// ensure referral count reflects once someone is referred
+// --- fp3 and fp6 should have 30 days kini
+// referrals for first 4 should be 0

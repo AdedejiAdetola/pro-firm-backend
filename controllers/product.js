@@ -57,9 +57,11 @@ exports.getOneProduct = async (req, res) => {
 exports.postPurchaseProduct = async (req, res) => {
   const { productId } = req.params
 
+  console.log('got here', productId)
+
   try {
     // const user = await User.findById(req.userId).populate('purchasedProducts'); 
-    const user = await User.findById("651ad7f0213272152351da98").populate('purchasedProducts'); 
+    const user = await User.findById(req.userId).populate('purchasedProducts'); 
     unAuthorized(user)
     
     const product = await Product.findById(productId)
@@ -148,11 +150,14 @@ exports.postPurchaseProduct = async (req, res) => {
 }
 
 exports.getPurchasedProducts = async (req, res) => {
+  // console.log('req', req)
   try {
     const user = await User.findById(req.userId).populate('purchasedProducts');
     // const user = await User.findById("650132d3b3e8a691e7fc0eb6").populate('purchasedProducts');
     unAuthorized(user)
     const { purchasedProducts } = user
+
+    console.log('purchased', purchasedProducts)
 
     if(purchasedProducts.length == 0){
       return res.status(200).json({
